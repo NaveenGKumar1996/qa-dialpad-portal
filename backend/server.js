@@ -1,11 +1,10 @@
 const express = require('express')
+const dotenv = require('dotenv').config();
 const app = express()
 const port = process.env.PORT || 3500
 
-app.get("/",(req,res)=>{
-    res.send("Hello dialpad");
-})
+app.use("/api/dp-qa", require("./routes/productRoutes"))
 
-app.listen(port,()=>{
+app.listen(port, () => {
     console.log(`Server is listening on port ${port}`)
 })
